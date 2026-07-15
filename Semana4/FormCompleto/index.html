@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Completo</title>
+
+    <form id="form-completo">
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <br><br>
+        <br><br>
+
+        <label for="comentarios">Comentários:</label>
+        <textarea 
+            id="comentarios",  
+            name="comentarios",
+            minlength="100",
+            maxlength="500", 
+            rows="4",
+            cols="50",
+            placeholder="Digite seus comentários aqui (mínimo 100 caracteres, máximo 500 caracteres)", 
+            required
+        >
+        </textarea>
+
+        <br><br>
+        <br><br>
+
+
+        <label for="como-conheceu">Como conheceu o curso?</label>
+        <select id="como-conheceu" name="como-conheceu" required>
+            <option value="">Selecione uma opção</option>
+            <optgroup label="Redes sociais do Projeto">
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="twitter">Twitter</option>
+            </optgroup>
+            <optgroup label="Indicação de amigos">
+                <option value="amigos">Indicação de amigos</option>
+            </optgroup>
+            <optgroup label="Outros">
+                <option value="escrever">Descreva, abaixo, como conheceu o projeto</option>
+            </optgroup>
+
+        </select>
+
+        <p><b><i>ou</i></b></p>
+
+        <input 
+            type="text", 
+            name="outros", 
+            id="outros",
+            placeholder="Escreva como conheceu o projeto..."
+        >
+
+        <input type="button" value="Limpar" onclick="document.getElementById('form-completo').reset();">
+        <input type="submit" value="Enviar">
+
+    </form>
+</head>
+<body>
+    
+</body>
+</html>

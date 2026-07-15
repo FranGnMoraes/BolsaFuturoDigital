@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EvenTech - Página de inscrição para eventos">
+    <meta name="keywords" content="Eventos, Inscrição, Eventos Tech, Desenvolvimento de Software, Tecnologia">
+    <meta name="author" content="EvenTech">
+    <title>Inscrição</title>
+</head>
+<body>
+    <header>
+        <a href="home.html" aria-label="Voltar para a página inicial">
+            <img src="images/logo.png" alt="Logo da EvenTech" width="100" height="100">
+        </a>
+        
+        <h1>Inscrição para Eventos</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="programacao.html">Programação</a></li>
+                <li><a href="inscricao.html">Inscrição</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="form-inscricao" aria-label="Formulário de inscrição para eventos">
+        <h2>Formulário de Inscrição</h2>
+        <form action="#" method="post" aria-label="Formulário de inscrição para eventos">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+
+            <br><br>
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+
+
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+
+            <br><br>
+
+            <label for="data">Data de nascimento:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+
+            <br><br>
+            <hr>
+
+            <label for="evento">Evento:</label>
+            <select id="evento" name="evento" required>
+                <option value="">Selecione um evento</option>
+                <option value="workshop_web">Workshop de Desenvolvimento Web</option>
+                <option value="palestra_ai">Palestra sobre Inteligência Artificial</option>
+                <option value="hackathon_inovacao">Hackathon de Inovação</option>
+                <option value="meetup_ux_ui">Meetup de UX/UI Design</option>
+            </select>
+
+            <br><br>
+            
+            <label for="tipo_ingresso">Tipo de Ingresso:</label>
+            <select id="tipo_ingresso" name="tipo_ingresso" required>
+                <option value="">Selecione o tipo de ingresso</option>
+                <option value="normal">Ingresso Normal</option>
+                <option value="estudante">Ingresso Estudante</option>
+                <option value="colaborador">Ingresso Colaborador</option>
+            </select>
+
+            <br><br>
+
+            <label for="comprovante_matricula">Comprovante de matrícula (para ingresso estudante):</label>
+            <input type="file" 
+                id="comprovante_matricula" 
+                name="comprovante_matricula" 
+                accept=".pdf,.jpg,.jpeg,.png" 
+                placeholder="Envie seu comprovante de matrícula em formato PDF, JPG, JPEG ou PNG" 
+                required
+            >
+
+            <br><br>
+            <hr>
+
+            <label for="Necessidade">Possui alguma necessidade específica? Se sim, especifique:</label>
+            <textarea 
+                id="Necessidade" 
+                name="Necessidade" 
+                rows="4" 
+                cols="50" 
+                minlength="3"
+                maxlength="500"
+                placeholder="Digite aqui sua necessidade ex: cadeira de rodas, intérprete de libras, etc."
+                required
+            >
+            </textarea>
+            
+            <br><br>
+
+            <hr>
+
+            <label for="pagamento">Forma de Pagamento:</label>
+            <select id="pagamento" name="pagamento" required>
+                <option value="">Selecione a forma de pagamento</option>
+                <option value="cartao_credito">Cartão de Crédito</option>
+                <option value="boleto">Boleto Bancário</option>
+                <option value="pix">PIX</option>
+            </select>
+
+            <br><br>
+
+            <hr>
+
+            <label for="termos">Aceito os termos e condições:</label>
+            <input type="checkbox" id="termos" name="termos" required>
+
+            <br>
+
+            <label for="newsletter">Desejo receber novidades e atualizações por email:</label>
+            <input type="checkbox" id="newsletter" name="newsletter" aria-label="Desejo receber novidades e atualizações por email">
+
+            <br><br>
+
+            <button type="submit" aria-label="Enviar Inscrição">Enviar Inscrição</button>
+            <button type="reset" aria-label="Limpar Formulário">Limpar Formulário</button>
+
+            <br><br>
+        </form>
+
+    </section>
+
+    <footer>
+        &copy; 2026 EvenTech. Todos os direitos reservados.
+    </footer>
+</body>
+</html>
