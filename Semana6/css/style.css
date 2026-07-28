@@ -27,7 +27,21 @@ hr {
     border: 2px solid #6200ff;
 }
 
+fieldset{
+    padding: 20px;
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    border: none;
+    box-shadow: 1px 1px 2px 1px rgb(146, 146, 146);
+}
+
 button {
     background: #6200ff;
     color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
 }
