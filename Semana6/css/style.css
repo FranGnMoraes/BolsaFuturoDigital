@@ -135,8 +135,7 @@ table {
 }
 
 #programacao {
-    max-width: 1000px;
-    margin: 40px auto;
+    margin: 40px 0;
 
     h2 {
         color: #030264;
@@ -147,8 +146,11 @@ table {
         margin-bottom: 25px;
     }
 
-    table {
-        margin-top: 20px;
+    .tabela-container {
+        width: 100%;
+        max-width: 1000px;
+        margin: 30px auto;
+        overflow-x: auto;
     }
 }
 
