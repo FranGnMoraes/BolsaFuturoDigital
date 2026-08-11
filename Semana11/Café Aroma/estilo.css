@@ -176,17 +176,17 @@ main {
         }
     }
 
-    #cardapio-produtos {
-        .cardapio-produtos {
+    .cardapio-produtos {
+        
             display: grid;
             grid-template-columns:
                 repeat(auto-fit,
                     minmax(200px, 1fr));
             gap: 24px;
-        }
+        
 
         .produto {
-            background: var(--cor-fundo);
+            background: var(--cor-destaque);
             border-radius: 10px;
             padding: 16px;
             text-align: center;
