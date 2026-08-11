@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Grid — a unidade fr</title>
+  <style>
+    :root {
+      --bg: #0F2C5A;
+      --panel: #1A3F7F;
+      --code: #081D3D;
+      --cyan: #6BD6FA;
+      --teal: #52E8CC;
+      --yellow: #FFD166;
+      --rose: #F4869A;
+      --white: #FFFFFF;
+      --grey: #C9D6E8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Calibri, "Segoe UI", sans-serif;
+      padding: 32px 40px 60px;
+    }
+
+    h1 {
+      font-family: Cambria, Georgia, serif;
+      font-size: 28px;
+      margin: 0 0 6px;
+    }
+
+    h2 {
+      font-family: Cambria, Georgia, serif;
+      font-size: 19px;
+      color: var(--cyan);
+      margin: 36px 0 10px;
+    }
+
+    .sub {
+      color: var(--grey);
+      font-size: 15px;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+
+    .codebox {
+      background: var(--code);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-family: "Courier New", monospace;
+      font-size: 13.5px;
+      line-height: 1.7;
+      white-space: pre;
+      overflow-x: auto;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+
+    /* ============================================
+     EXEMPLO A: 3 colunas iguais (1fr 1fr 1fr)
+     ============================================ */
+    .grid-a {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      max-width: 760px;
+    }
+
+    /* ============================================
+     EXEMPLO B: sidebar fixa + conteúdo (250px 1fr)
+     ============================================ */
+    .grid-b {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 16px;
+      max-width: 760px;
+    }
+
+    .grid-a>div,
+    .grid-b>div {
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .grid-a>div {
+      color: var(--teal);
+    }
+
+    .grid-b .sidebar {
+      background: #14345F;
+      color: var(--yellow);
+    }
+
+    .grid-b .conteudo {
+      color: var(--rose);
+      text-align: left;
+    }
+
+    footer {
+      margin-top: 34px;
+      color: var(--grey);
+      font-size: 12.5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>A unidade fr (fraction)</h1>
+
+
+  <h2>Exemplo A — grid-template-columns: 1fr 1fr 1fr</h2>
+  <div class="codebox">.grid-a {
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+    /* 3 colunas de largura igual */</div>
+  <div class="grid-a">
+    <div>1fr</div>
+    <div>1fr</div>
+    <div>1fr</div>
+  </div>
+
+  <h2>Exemplo B — grid-template-columns: 250px 1fr</h2>
+  <div class="codebox">.grid-b {
+    grid-template-columns: 250px 1fr;
+    }
+    /* sidebar fixa + conteúdo que ocupa o resto */</div>
+  <div class="grid-b">
+    <div class="sidebar">sidebar (250px)</div>
+    <div class="conteudo">conteúdo (1fr) — ocupa todo o espaço restante, então cresce ou encolhe conforme a tela.</div>
+  </div>
+
+
+</body>
+
+</html>

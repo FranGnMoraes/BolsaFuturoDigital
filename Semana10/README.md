@@ -5,6 +5,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![SASS](https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Conclu%C3%ADdo-003603?style=for-the-badge)
+[![GitHub Pages](https://img.shields.io/badge/Demo-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://frangnmoraes.github.io/Cafe-Aroma/)
 
 Projeto prático desenvolvido para o curso de **Front-End da Bolsa Futuro Digital** (Semana 10).
 
