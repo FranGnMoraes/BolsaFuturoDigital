@@ -178,11 +178,11 @@ main {
 
     .cardapio-produtos {
         
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit,
-                    minmax(200px, 1fr));
-            gap: 24px;
+        display: grid;
+        grid-template-columns:
+            repeat(auto-fit,
+                minmax(250px, 1fr));
+        gap: 24px;
         
 
         .produto {
@@ -190,6 +190,40 @@ main {
             border-radius: 10px;
             padding: 16px;
             text-align: center;
+            box-shadow: var(--box-shadow);
+
+            img {
+                width: 240px;
+                height: 180px;
+                border-radius: var(--border-radius);
+            }
+
+            .hr2 {
+                margin: none;
+                padding-bottom: 20px;
+                height: 10px;
+                border: none;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                text-shadow: 2px 2px 2px var(--cor-primaria);
+                margin: 10px 0;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.2;
+                margin: 10px 0;
+            }
+
+            .preco {
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: var(--cor-secundaria);
+                text-shadow: 2px 2px 2px var(--cor-primaria);
+            }
         }
     }
 
@@ -231,6 +265,7 @@ main {
 
     #reservas {
         h2 {
+            border: 4px solid var(--cor-primaria);
             color: var(--cor-destaque);
             text-shadow: none;
             margin-top: 40px;
