@@ -1,0 +1,70 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-destaque: #6BD6FA;
+  --cor-texto: #FFFFFF;
+  --espaco: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+}
+
+header {
+  background: var(--cor-primaria);
+  padding: var(--espaco) 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  /* ==========================================
+     DESAFIO 1: sem nenhum display definido,
+     .logo e <nav> ficam empilhados, um embaixo
+     do outro (comportamento padrão de bloco).
+
+     Sua tarefa: usar Flexbox para colocar o logo
+     à esquerda e o menu à direita, alinhados
+     verticalmente ao centro.
+     ========================================== */
+}
+
+.logo {
+  font-family: Cambria, serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--cor-destaque);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+
+  /* dica: esta lista também precisa virar um
+     flex container, para os links ficarem
+     lado a lado com um espaçamento (gap) entre eles */
+}
+
+nav a {
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: var(--cor-destaque);
+}
+
+main {
+  padding: 32px;
+  color: #C9D6E8;
+}

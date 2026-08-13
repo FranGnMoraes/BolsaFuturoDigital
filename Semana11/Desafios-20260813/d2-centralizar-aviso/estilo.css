@@ -1,0 +1,65 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-destaque: #FFD166;
+  --cor-texto: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* ==========================================
+     DESAFIO 2: o .aviso está no canto superior
+     esquerdo da tela, seguindo o fluxo normal
+     do documento.
+
+     Sua tarefa: usando Flexbox no <body> (ou em
+     um wrapper), centralizar o .aviso tanto na
+     horizontal quanto na vertical, ocupando a
+     tela inteira (min-height: 100vh já está
+     pronto para isso).
+     ========================================== */
+}
+
+.aviso {
+  background: var(--cor-primaria);
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 340px;
+  text-align: center;
+}
+
+.aviso h2 {
+  font-family: Cambria, serif;
+  color: var(--cor-destaque);
+  margin-bottom: 10px;
+}
+
+.aviso p {
+  font-size: 15px;
+  color: #C9D6E8;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.aviso button {
+  background: var(--cor-destaque);
+  color: var(--cor-fundo);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

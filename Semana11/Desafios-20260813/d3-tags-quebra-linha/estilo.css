@@ -1,0 +1,53 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-destaque: #52E8CC;
+  --cor-texto: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+  padding: 32px;
+}
+
+h1 {
+  font-family: Cambria, serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.tags {
+  display: flex;
+  max-width: 560px;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  /* ==========================================
+     DESAFIO 3: como o container é flex mas SEM
+     flex-wrap, todas as 10 tags tentam caber em
+     uma única linha e acabam espremidas (o texto
+     de cada tag fica cortado ou ilegível).
+
+     Sua tarefa: adicionar flex-wrap: wrap para
+     que as tags quebrem para a próxima linha
+     quando não couberem mais, e um gap para dar
+     espaçamento entre elas.
+     ========================================== */
+}
+
+.tag {
+  background: var(--cor-primaria);
+  color: var(--cor-destaque);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  white-space: nowrap;
+}

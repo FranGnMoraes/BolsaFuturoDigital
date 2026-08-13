@@ -1,0 +1,58 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-fundo-alt: #14345F;
+  --cor-destaque: #FFD166;
+  --cor-texto: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+  padding: 32px;
+}
+
+.pagina {
+  max-width: 800px;
+  min-height: 420px;
+  gap: 14px;
+
+  display: grid;
+  grid-template-areas: "cabecalho cabecalho"
+                       "menu      conteudo"
+                       "rodape    rodape";
+  /* ==========================================
+     DESAFIO 6: header, nav, main e footer estão
+     simplesmente empilhados na ordem em que
+     aparecem no HTML (comportamento padrão de bloco).
+
+     Sua tarefa: usar grid-template-areas para
+     montar este layout:
+
+       cabecalho cabecalho
+       menu      conteudo
+       rodape    rodape
+
+     Depois, atribua um grid-area a cada elemento
+     (header, nav, main, footer) para que cada um
+     ocupe a região correta.
+     ========================================== */
+}
+
+.pagina > * {
+  border-radius: 10px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+header { background: var(--cor-primaria); color: var(--cor-destaque); grid-area: cabecalho; }
+nav    { background: var(--cor-fundo-alt); color: #6BD6FA; grid-area: menu; }
+main   { background: var(--cor-primaria); color: #F4869A; grid-area: conteudo; }
+footer { background: var(--cor-fundo-alt); color: #52E8CC; text-align: center; grid-area: rodape;}

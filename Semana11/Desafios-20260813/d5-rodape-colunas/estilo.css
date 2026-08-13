@@ -1,0 +1,64 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-destaque: #6BD6FA;
+  --cor-texto: #FFFFFF;
+  --espaco: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+}
+
+main {
+  padding: 32px;
+  color: #C9D6E8;
+}
+
+footer {
+  background: var(--cor-primaria);
+  padding: var(--espaco) 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--espaco);
+
+  /* ==========================================
+     DESAFIO 5: as 3 .coluna ficam empilhadas
+     verticalmente (comportamento padrão de bloco).
+
+     Sua tarefa: usar CSS Grid com
+     grid-template-columns: 1fr 1fr 1fr para
+     colocar as 3 colunas lado a lado, com um
+     gap entre elas.
+     ========================================== */
+}
+
+.coluna h3 {
+  font-family: Cambria, serif;
+  color: var(--cor-destaque);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.coluna p {
+  font-size: 14px;
+  color: #C9D6E8;
+  margin-bottom: 6px;
+}
+
+.coluna a {
+  color: #C9D6E8;
+  text-decoration: none;
+}
+
+.coluna a:hover {
+  color: var(--cor-destaque);
+}
