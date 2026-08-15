@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Carrossel básico — Flexbox + overflow-x</title>
+<style>
+  :root{
+    --bg:#0F2C5A; --panel:#1A3F7F; --code:#081D3D;
+    --cyan:#6BD6FA; --teal:#52E8CC; --yellow:#FFD166; --rose:#F4869A;
+    --white:#FFFFFF; --grey:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--white);
+    font-family: Calibri, "Segoe UI", sans-serif;
+    padding:32px 40px 60px;
+  }
+  h1{font-family: Cambria, Georgia, serif; font-size:28px; margin:0 0 6px;}
+  .sub{color:var(--grey); font-size:15px; margin-bottom:10px; max-width:800px;}
+  .tip{color:var(--yellow); font-size:13.5px; margin-bottom:22px;}
+  .codebox{
+    background:var(--code); border-radius:10px; padding:18px 20px;
+    font-family:"Courier New", monospace; font-size:14px; line-height:1.7;
+    white-space:pre; overflow-x:auto; margin-bottom:28px; max-width:560px;
+  }
+
+  /* ============================================
+     O EXEMPLO EM SI: carrossel horizontal simples
+     ============================================
+     display:flex faz as fotos ficarem lado a lado.
+     overflow-x:auto permite rolar horizontalmente
+     quando elas não cabem todas na tela.
+  */
+  .carrossel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    max-width: 760px;
+  }
+  .foto {
+    flex: 0 0 220px;   /* não cresce, não encolhe, largura fixa de 220px */
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--bg);
+  }
+  .foto:nth-child(1){ background: var(--cyan); }
+  .foto:nth-child(2){ background: var(--teal); }
+  .foto:nth-child(3){ background: var(--yellow); }
+  .foto:nth-child(4){ background: var(--rose); }
+  .foto:nth-child(5){ background: #A78BFA; }
+  .foto:nth-child(6){ background: var(--cyan); }
+
+  footer{margin-top:34px; color:var(--grey); font-size:12.5px;}
+</style>
+</head>
+<body>
+
+  <h1>Carrossel básico com Flexbox</h1>
+  <div class="sub">display: flex organiza as fotos lado a lado; overflow-x: auto libera a rolagem horizontal quando elas não cabem.</div>
+  <div class="tip">↔ Arraste a barra de rolagem (ou use o scroll do mouse/trackpad) para navegar pelas fotos.</div>
+
+  <div class="codebox">.carrossel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.foto {
+  flex: 0 0 220px; /* largura fixa,
+                       não cresce nem encolhe */
+  height: 150px;
+}</div>
+
+  <div class="carrossel">
+    <div class="foto">Foto 1</div>
+    <div class="foto">Foto 2</div>
+    <div class="foto">Foto 3</div>
+    <div class="foto">Foto 4</div>
+    <div class="foto">Foto 5</div>
+    <div class="foto">Foto 6</div>
+  </div>
+
+  <footer>Semana 6 · Extra — Carrossel 1 de 3: básico (Flexbox + overflow-x)</footer>
+</body>
+</html>

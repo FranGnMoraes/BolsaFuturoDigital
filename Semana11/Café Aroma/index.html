@@ -135,20 +135,76 @@
 
     <section id="depoimentos">
       <h2>O que dizem nossos clientes</h2>
-      <ul>
-        <li>
-          <p>&ldquo;O melhor cappuccino da região, e o ambiente é super tranquilo para trabalhar.&rdquo;</p>
-          <p><strong>— Marina T.</strong></p>
-        </li>
-        <li>
-          <p>&ldquo;Virei cliente fiel só pela torrada de abacate. Recomendo demais!&rdquo;</p>
-          <p><strong>— Rafael S.</strong></p>
-        </li>
-        <li>
-          <p>&ldquo;Atendimento excelente e o café é sempre fresquinho.&rdquo;</p>
-          <p><strong>— Beatriz L.</strong></p>
-        </li>
-      </ul>
+
+      <div class="carrossel-wrapper">
+        <button class="seta prev" aria-label="Foto anterior">&#8592;</button>
+        <div class="carrossel">
+          <ul>
+            <li>
+              <img class="img" src="img/profile-picture-girl.jpeg" alt="Foto de perfil de Marina T.">
+              <p>&ldquo;O melhor cappuccino da região, e o ambiente é super tranquilo para trabalhar.&rdquo;</p>
+              <p><strong>— Marina T.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-boy.jpeg" alt="Foto de perfil de Rafael S.">
+              <p>&ldquo;Virei cliente fiel só pela torrada de abacate. Recomendo demais!&rdquo;</p>
+              <p><strong>— Rafael S.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-girl.jpeg" alt="Foto de perfil de Beatriz L.">
+              <p>&ldquo;Atendimento excelente e o café é sempre fresquinho.&rdquo;</p>
+              <p><strong>— Beatriz L.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-boy.jpeg" alt="Foto de perfil de Beatriz L.">
+              <p>&ldquo;Atendimento excelente e o café é sempre fresquinho.&rdquo;</p>
+              <p><strong>— Beatriz L.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-girl.jpeg" alt="Foto de perfil de Marina T.">
+              <p>&ldquo;O melhor cappuccino da região, e o ambiente é super tranquilo para trabalhar.&rdquo;</p>
+              <p><strong>— Marina T.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-boy.jpeg" alt="Foto de perfil de Rafael S.">
+              <p>&ldquo;Virei cliente fiel só pela torrada de abacate. Recomendo demais!&rdquo;</p>
+              <p><strong>— Rafael S.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-girl.jpeg" alt="Foto de perfil de Marina T.">
+              <p>&ldquo;O melhor cappuccino da região, e o ambiente é super tranquilo para trabalhar.&rdquo;</p>
+              <p><strong>— Marina T.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-boy.jpeg" alt="Foto de perfil de Rafael S.">
+              <p>&ldquo;Atendimento excelente e o café é sempre fresquinho.&rdquo;</p>
+              <p><strong>— Beatriz L.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-girl.jpeg" alt="Foto de perfil de Beatriz L.">
+              <p>&ldquo;Atendimento excelente e o café é sempre fresquinho.&rdquo;</p>
+              <p><strong>— Beatriz L.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-boy.jpeg" alt="Foto de perfil de Rafael S.">
+              <p>&ldquo;Virei cliente fiel só pela torrada de abacate. Recomendo demais!&rdquo;</p>
+              <p><strong>— Rafael S.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-girl.jpeg" alt="Foto de perfil de Marina T.">
+              <p>&ldquo;O melhor cappuccino da região, e o ambiente é super tranquilo para trabalhar.&rdquo;</p>
+              <p><strong>— Marina T.</strong></p>
+            </li>
+            <li>
+              <img class="img" src="img/profile-picture-boy.jpeg" alt="Foto de perfil de Rafael S.">
+              <p>&ldquo;Atendimento excelente e o café é sempre fresquinho.&rdquo;</p>
+              <p><strong>— Beatriz L.</strong></p>
+            </li>
+          </ul>
+        </div>
+        <button class="seta next" aria-label="Próxima foto">&#8594;</button>
+      </div>
+
       <hr class="hr1">
     </section>
 
@@ -187,6 +243,16 @@
     <p>Café Aroma &amp; Cia — Rua das Flores, 245, Centro</p>
     <p>Telefone: (51) 0000-0000 · contato@aromaecia.exemplo</p>
   </footer>
+
+  <script>
+    const trilho = document.querySelector('.carrossel');
+    document.querySelector('.next').onclick = () => {
+      trilho.scrollBy({ left: 320, behavior: 'smooth' });
+    };
+    document.querySelector('.prev').onclick = () => {
+      trilho.scrollBy({ left: -320, behavior: 'smooth' });
+    };
+  </script>
 
 </body>
 </html>

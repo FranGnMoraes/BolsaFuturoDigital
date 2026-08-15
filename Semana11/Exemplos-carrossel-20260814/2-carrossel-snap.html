@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Carrossel com scroll-snap</title>
+<style>
+  :root{
+    --bg:#0F2C5A; --panel:#1A3F7F; --code:#081D3D;
+    --cyan:#6BD6FA; --teal:#52E8CC; --yellow:#FFD166; --rose:#F4869A;
+    --white:#FFFFFF; --grey:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--white);
+    font-family: Calibri, "Segoe UI", sans-serif;
+    padding:32px 40px 60px;
+  }
+  h1{font-family: Cambria, Georgia, serif; font-size:28px; margin:0 0 6px;}
+  .sub{color:var(--grey); font-size:15px; margin-bottom:10px; max-width:800px;}
+  .tip{color:var(--yellow); font-size:13.5px; margin-bottom:22px;}
+  .codebox{
+    background:var(--code); border-radius:10px; padding:18px 20px;
+    font-family:"Courier New", monospace; font-size:14px; line-height:1.7;
+    white-space:pre; overflow-x:auto; margin-bottom:28px; max-width:560px;
+  }
+
+  /* ============================================
+     O EXEMPLO EM SI: scroll-snap-type + align
+     ============================================
+     scroll-snap-type no container diz: "ao parar
+     de rolar, encaixe em um ponto".
+     scroll-snap-align em cada item diz: "encaixe
+     aqui, no centro deste item".
+  */
+  .carrossel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    max-width: 760px;
+
+    scroll-snap-type: x mandatory;   /* ativa o encaixe horizontal */
+    scroll-behavior: smooth;
+  }
+  .foto {
+    flex: 0 0 320px;
+    height: 180px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--bg);
+
+    scroll-snap-align: center;       /* cada foto encaixa no centro */
+  }
+  .foto:nth-child(1){ background: var(--cyan); }
+  .foto:nth-child(2){ background: var(--teal); }
+  .foto:nth-child(3){ background: var(--yellow); }
+  .foto:nth-child(4){ background: var(--rose); }
+  .foto:nth-child(5){ background: #A78BFA; }
+
+  /* opcional: esconder a barra de rolagem para um visual mais "app" */
+  .carrossel::-webkit-scrollbar { height: 8px; }
+  .carrossel::-webkit-scrollbar-thumb { background: var(--panel); border-radius: 4px; }
+
+  footer{margin-top:34px; color:var(--grey); font-size:12.5px;}
+</style>
+</head>
+<body>
+
+  <h1>Carrossel com scroll-snap</h1>
+  <div class="sub">scroll-snap-type (no container) + scroll-snap-align (nos itens) fazem a rolagem "encaixar" em cada foto, como em apps de celular.</div>
+  <div class="tip">↔ Role devagar: repare como a foto encaixa sozinha no centro, sem parar pela metade.</div>
+
+  <div class="codebox">.carrossel {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.foto {
+  scroll-snap-align: center;
+}</div>
+
+  <div class="carrossel">
+    <div class="foto">Foto 1</div>
+    <div class="foto">Foto 2</div>
+    <div class="foto">Foto 3</div>
+    <div class="foto">Foto 4</div>
+    <div class="foto">Foto 5</div>
+  </div>
+
+  <footer>Semana 6 · Extra — Carrossel 2 de 3: com scroll-snap</footer>
+</body>
+</html>
