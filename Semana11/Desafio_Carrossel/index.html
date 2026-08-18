@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Carrossel</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #1b1f27;
+            --panel: #2a2f3a;
+            --white: #ffffff;
+            --cyan: #22d3ee;
+            --blue: #2f5fe0;
+            --blue-dark: #1c3a94;
+        }
+
+        .root {
+            height: 100vh;
+        }
+
+        html, body {
+            background: var(--bg);
+            min-height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            background: var(--bg);
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-snap, .setas {
+            width: 80%;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--panel);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .scroll-snap .carrossel {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            width: 100%;
+            max-width: 760px;
+
+            scroll-snap-type: x mandatory;   /* ativa o encaixe horizontal */
+            scroll-behavior: smooth;
+        }
+        .scroll-snap .foto {
+            flex: 0 0 320px;
+            height: 180px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--bg);
+            overflow: hidden;
+
+            scroll-snap-align: center;       /* cada foto encaixa no centro */
+        }
+
+        .scroll-snap .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scroll-snap .carrossel::-webkit-scrollbar { height: 8px; }
+        .scroll-snap .carrossel::-webkit-scrollbar-track { background: var(--bg); border-radius: 4px; }
+        .scroll-snap .carrossel::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 4px; }
+        .scroll-snap .carrossel::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+
+    .setas .carrossel-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 760px;
+    }
+    .setas .carrossel {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: 12px;
+    }
+    .setas .foto {
+        flex: 0 0 260px;
+        height: 160px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: var(--bg);
+        overflow: hidden;
+        scroll-snap-align: center;
+    }
+
+    .setas .foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .setas .seta {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--panel);
+        color: var(--white);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .setas .seta:hover { background: var(--cyan); color: var(--bg); }
+    .setas .seta.prev { left: -8px; }
+    .setas .seta.next { right: -8px; }
+
+    h1 {
+        margin: 20px;
+        color: var(--white);
+    }
+
+    @media (min-width: 1024px) {
+        .scroll-snap, .setas {
+            width: 90%;
+        }
+
+        .scroll-snap .carrossel,
+        .setas .carrossel-wrapper {
+            max-width: 1180px;
+        }
+    }
+
+    header {
+        text-align: center;
+        padding: 20px 0;
+        background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+        color: var(--white);
+        border-bottom: 1px solid var(--panel);
+    }
+
+    footer {
+        padding: 12px 0;
+        color: var(--white);
+        font-size: 12.5px;
+        background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+        text-align: center;
+        border-top: 1px solid var(--panel);
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Meu Carrossel</h1>
+    </header>
+
+    <main>
+        <section class="scroll-snap">
+
+        <h1>Carrossel com scroll-snap</h1>
+
+        <div class="carrossel">
+            <div class="foto"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=400&q=80" alt="Foto 1"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=400&q=80" alt="Foto 2"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=400&q=80" alt="Foto 3"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=400&q=80" alt="Foto 4"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=80" alt="Foto 5"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=400&q=80" alt="Foto 6"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=400&q=80" alt="Foto 7"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80" alt="Foto 8"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=400&q=80" alt="Foto 9"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80" alt="Foto 10"></div>
+        </div>
+    </section>
+
+     <section class="setas">
+
+        <h1>Carrossel com setas</h1>
+
+        <div class="carrossel-wrapper">
+        <button class="seta prev">&#10094;</button>
+        <div class="carrossel">
+            <div class="foto"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=400&q=80" alt="Foto 1"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=400&q=80" alt="Foto 2"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=400&q=80" alt="Foto 3"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=400&q=80" alt="Foto 4"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=80" alt="Foto 5"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=400&q=80" alt="Foto 6"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=400&q=80" alt="Foto 7"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80" alt="Foto 8"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=400&q=80" alt="Foto 9"></div>
+            <div class="foto"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80" alt="Foto 10"></div>
+        </div>
+        <button class="seta next">&#10095;</button>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>Semana 11 · Desafio — Carrossel Snap e Carrossel com setas (JS)</footer>
+
+    <script>
+        const trilho = document.querySelector('.setas .carrossel');
+        document.querySelector('.next').onclick = () => {
+        trilho.scrollBy({ left: 280, behavior: 'smooth' });
+    };
+        document.querySelector('.prev').onclick = () => {
+        trilho.scrollBy({ left: -280, behavior: 'smooth' });
+    };
+    </script>
+</body>
+</html>
