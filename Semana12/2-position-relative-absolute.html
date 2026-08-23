@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>position: relative e absolute</title>
+<style>
+  :root{
+    --bg:#0F2C5A; --panel:#1A3F7F; --code:#081D3D;
+    --cyan:#6BD6FA; --teal:#52E8CC; --yellow:#FFD166; --rose:#F4869A;
+    --white:#FFFFFF; --grey:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--white);
+    font-family: Calibri, "Segoe UI", sans-serif;
+    padding:32px 40px 60px;
+  }
+  h1{font-family: Cambria, Georgia, serif; font-size:28px; margin:0 0 6px;}
+  h2{font-family: Cambria, Georgia, serif; font-size:18px; color:var(--cyan); margin:32px 0 10px;}
+  .sub{color:var(--grey); font-size:15px; margin-bottom:20px; max-width:800px;}
+  .codebox{
+    background:var(--code); border-radius:10px; padding:16px 18px;
+    font-family:"Courier New", monospace; font-size:13.5px; line-height:1.7;
+    white-space:pre; overflow-x:auto; margin-bottom:20px; max-width:560px;
+  }
+  .linha{ display:flex; gap:40px; flex-wrap:wrap; }
+
+  /* ============================================
+     EXEMPLO A: SEM position:relative no pai
+     (o selo "foge" para o canto da página)
+     ============================================ */
+  .card-errado {
+    background: var(--panel);
+    border-radius: 10px;
+    padding: 20px;
+    width: 220px;
+    /* propositalmente SEM position: relative */
+  }
+  .card-errado .selo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--rose);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* ============================================
+     EXEMPLO B: COM position:relative no pai
+     (o selo fica no canto do card, como esperado)
+     ============================================ */
+  .card-certo {
+    position: relative;
+    background: var(--panel);
+    border-radius: 10px;
+    padding: 20px;
+    width: 220px;
+  }
+  .card-certo .selo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--teal);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .card-errado, .card-certo { min-height: 120px; }
+
+  footer{margin-top:34px; color:var(--grey); font-size:12.5px;}
+</style>
+</head>
+<body>
+
+  <h1>position: relative + absolute</h1>
+  <div class="sub">Slides 6 e 7 — Aula 1, Semana 7. Compare os dois cards: a única diferença é o position: relative no pai.</div>
+
+  <div class="linha">
+    <div>
+      <h2>❌ Sem relative no pai</h2>
+      <div class="codebox">.card-errado {
+  /* sem position: relative */
+}
+.selo {
+  position: absolute;
+  top: 8px; right: 8px;
+}</div>
+      <div class="card-errado">
+        <span class="selo">Novo</span>
+        Card sem position:relative — o selo se posiciona em relação à página inteira.
+      </div>
+    </div>
+
+    <div>
+      <h2>✅ Com relative no pai</h2>
+      <div class="codebox">.card-certo {
+  position: relative;
+}
+.selo {
+  position: absolute;
+  top: 8px; right: 8px;
+}</div>
+      <div class="card-certo">
+        <span class="selo">Novo</span>
+        Card com position:relative — o selo fica certinho no canto deste card.
+      </div>
+    </div>
+  </div>
+
+  <footer>Semana 7 · Exemplo 2 de 8 — position: relative + absolute</footer>
+</body>
+</html>

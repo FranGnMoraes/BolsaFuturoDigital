@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Mobile-first e media queries</title>
+<style>
+  :root{
+    --bg:#0F2C5A; --panel:#1A3F7F; --code:#081D3D;
+    --cyan:#6BD6FA; --teal:#52E8CC; --yellow:#FFD166; --rose:#F4869A;
+    --white:#FFFFFF; --grey:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--white);
+    font-family: Calibri, "Segoe UI", sans-serif;
+    padding:32px 40px 60px;
+  }
+  h1{font-family: Cambria, Georgia, serif; font-size:28px; margin:0 0 6px;}
+  .sub{color:var(--grey); font-size:15px; margin-bottom:10px; max-width:800px;}
+  .tip{color:var(--yellow); font-size:13.5px; margin-bottom:22px;}
+  .codebox{
+    background:var(--code); border-radius:10px; padding:18px 20px;
+    font-family:"Courier New", monospace; font-size:13.5px; line-height:1.7;
+    white-space:pre; overflow-x:auto; margin-bottom:28px; max-width:600px;
+  }
+
+  /* ============================================
+     O EXEMPLO EM SI: mobile-first com 3 breakpoints
+     ============================================
+     Redimensione a janela do navegador para ver
+     o layout mudar de 1 para 2 e depois 3 colunas.
+  */
+  .galeria {
+    display: grid;
+    grid-template-columns: 1fr;         /* base: mobile, 1 coluna */
+    gap: 16px;
+  }
+
+  @media (min-width: 480px) {
+    .galeria { grid-template-columns: 1fr 1fr; }   /* celular maior: 2 colunas */
+  }
+
+  @media (min-width: 1024px) {
+    .galeria { grid-template-columns: 1fr 1fr 1fr; } /* desktop: 3 colunas */
+  }
+
+  .item {
+    background: var(--panel);
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--cyan);
+  }
+
+  .largura-atual {
+    margin-top: 24px;
+    color: var(--yellow);
+    font-size: 13px;
+  }
+
+  footer{margin-top:34px; color:var(--grey); font-size:12.5px;}
+</style>
+</head>
+<body>
+
+  <h1>Mobile-first e media queries</h1>
+  <div class="sub">Slides 2 a 5 — Aula 1, Semana 7. O CSS base é para mobile; media queries acrescentam colunas conforme a tela cresce.</div>
+  <div class="tip">↔ Redimensione a janela: 1 coluna abaixo de 480px, 2 colunas a partir de 480px, 3 colunas a partir de 1024px.</div>
+
+  <div class="codebox">.galeria {
+  grid-template-columns: 1fr;       /* mobile */
+}
+
+@media (min-width: 480px) {
+  .galeria { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1024px) {
+  .galeria { grid-template-columns: 1fr 1fr 1fr; }
+}</div>
+
+  <div class="galeria">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+    <div class="item">Item 5</div>
+    <div class="item">Item 6</div>
+  </div>
+
+  <div class="largura-atual" id="largura"></div>
+
+  <footer>Semana 7 · Exemplo 1 de 8 — Mobile-first e media queries</footer>
+
+  <script>
+    function mostrarLargura() {
+      document.getElementById('largura').textContent =
+        'Largura atual da janela: ' + window.innerWidth + 'px';
+    }
+    window.addEventListener('resize', mostrarLargura);
+    mostrarLargura();
+  </script>
+</body>
+</html>

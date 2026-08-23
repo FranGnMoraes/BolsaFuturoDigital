@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>position: fixed x sticky</title>
+<style>
+  :root{
+    --bg:#0F2C5A; --panel:#1A3F7F; --code:#081D3D;
+    --cyan:#6BD6FA; --teal:#52E8CC; --yellow:#FFD166; --rose:#F4869A;
+    --white:#FFFFFF; --grey:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--white);
+    font-family: Calibri, "Segoe UI", sans-serif;
+  }
+  .intro{ padding: 32px 40px 0; }
+  h1{font-family: Cambria, Georgia, serif; font-size:28px; margin:0 0 6px;}
+  .sub{color:var(--grey); font-size:15px; margin-bottom:10px; max-width:900px;}
+  .tip{color:var(--yellow); font-size:13.5px; margin-bottom:10px;}
+
+  .colunas { display:flex; gap:24px; padding: 20px 40px 60px; }
+  .coluna { flex:1; }
+  .coluna h2 { font-family: Cambria, serif; font-size:16px; margin:0 0 10px; }
+  .coluna.fixed h2{ color: var(--rose); }
+  .coluna.sticky h2{ color: var(--yellow); }
+
+  .scroll-area {
+    height: 320px;
+    overflow-y: auto;
+    border: 1px solid #2A4D8F;
+    border-radius: 10px;
+    position: relative;
+    background: var(--code);
+  }
+
+  .barra {
+    padding: 14px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--bg);
+  }
+  .fixed .barra {
+    position: fixed;      /* gruda na JANELA, não no .scroll-area */
+    width: 100%;
+    max-width: inherit;
+    background: var(--rose);
+    z-index: 2;
+  }
+  .sticky .barra {
+    position: sticky;     /* gruda no TOPO do próprio .scroll-area */
+    top: 0;
+    background: var(--yellow);
+    z-index: 2;
+  }
+
+  .conteudo { padding: 16px; }
+  .bloco {
+    background: var(--panel);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    color: var(--grey);
+    font-size: 14px;
+  }
+
+  footer{padding: 0 40px 40px; color:var(--grey); font-size:12.5px;}
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    <h1>position: fixed x sticky</h1>
+    <div class="sub">Slide 8 — Aula 1, Semana 7. Role dentro de cada caixa cinza-escura para sentir a diferença.</div>
+    <div class="tip">↕ À esquerda: a barra "fixed" tenta grudar na janela toda (repare que ela pode ficar mal posicionada dentro de um container pequeno — por isso fixed é mais usado direto no body). À direita: a barra "sticky" gruda certinho no topo do próprio container ao rolar.</div>
+  </div>
+
+  <div class="colunas">
+    <div class="coluna fixed">
+      <h2>position: fixed (dentro de um container)</h2>
+      <div class="scroll-area">
+        <div class="barra">🔒 Fixed (relativo à janela)</div>
+        <div class="conteudo" style="padding-top: 50px;">
+          <div class="bloco">Bloco 1</div>
+          <div class="bloco">Bloco 2</div>
+          <div class="bloco">Bloco 3</div>
+          <div class="bloco">Bloco 4</div>
+          <div class="bloco">Bloco 5</div>
+          <div class="bloco">Bloco 6</div>
+          <div class="bloco">Bloco 7</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coluna sticky">
+      <h2>position: sticky (dentro de um container)</h2>
+      <div class="scroll-area">
+        <div class="conteudo" style="padding-top:0;">
+          <div class="barra">📌 Sticky (relativo ao container)</div>
+          <div class="bloco">Bloco 1</div>
+          <div class="bloco">Bloco 2</div>
+          <div class="bloco">Bloco 3</div>
+          <div class="bloco">Bloco 4</div>
+          <div class="bloco">Bloco 5</div>
+          <div class="bloco">Bloco 6</div>
+          <div class="bloco">Bloco 7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Semana 7 · Exemplo 3 de 8 — position: fixed x sticky (na prática, sticky é o mais usado dentro de containers; fixed é mais usado direto no body, para elementos como botão de WhatsApp)</footer>
+</body>
+</html>
