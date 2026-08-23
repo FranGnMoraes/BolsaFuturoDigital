@@ -62,26 +62,67 @@
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        border-color: var(--secondary-color);
+        // Sombra violeta claro sutil no hover
+        box-shadow: 0 4px 15px rgba(181, 136, 255, 0.25);
+        border-color: var(--terciary-color);
     }
 
     a {
-        display: inline-flex;
+        display: flex;
         align-items: center;
+        gap: 0.75rem;
         text-decoration: none;
-        font-weight: 600;
-        font-size: 1.05rem;
+        color: var(--terciary-color); // Link em Violeta vibrante
 
         &:hover {
-            color: var(--link-hover-color);
+            color: var(--terciary-hover-color);
         }
     }
 
-    // Compila para ".social-item-email" (concatenação com &)
-    &-email {
-        border-left: 4px solid var(--terciary-color);
+    .icon {
+        color: var(--secondary-color); // Ícone destacado em Verde
+        width: 22px;
+        height: 22px;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+
+    &:hover .icon {
+        transform: scale(1.2) rotate(-5deg);
+    }
+
+    // Compila para ".social-item-email" (concatenação com &)
+    // Detalhe em Verde para mesclar as cores
+    &-email {
+        border-left: 4px solid var(--secondary-color);
+    }
+}
+
+.light-theme .social-item:hover {
+    box-shadow: 0 4px 15px rgba(124, 92, 237, 0.15);
+}
+
+// Textos de cada item: nome da rede em destaque (verde) + descrição em
+// itálico violeta, empilhados verticalmente e quebrando linha normalmente
+// (importante para o e-mail, que é o texto mais longo da lista).
+.social-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.social-brand {
+    color: var(--secondary-color); // Verde em cada tema
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 1.2rem;
+}
+
+.social-description {
+    color: var(--terciary-color);
+    font-style: italic;
+    line-height: 1.4;
+    font-weight: 200; // Peso menor para dar contraste com os títulos das redes
+    font-size: 0.8rem;
 }
 
 // Componente de Habilidades (categorias)
