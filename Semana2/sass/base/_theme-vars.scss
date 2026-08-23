@@ -1,0 +1,44 @@
+// ==========================================================================
+// Variáveis de tema (custom properties do CSS)
+// Ficam como variáveis CSS (não Sass) de propósito: precisam existir em
+// tempo de execução no navegador para o botão de tema alternar entre
+// :root e .light-theme sem recarregar a página.
+// ==========================================================================
+
+:root {
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --header-bg: rgba(26, 26, 26, 0.85);
+    --primary-color: #ffffff;
+    --text-color: #e0e0e0;
+    --text-muted: #b3b3b3;
+    --secondary-color: #7dfe7d; // Verde claro de alto contraste
+    --terciary-color: #b588ff; // Violeta claro vibrante (lindo contraste no escuro)
+    --terciary-hover-color: #d2b3ff;
+    --border-color: #2c2c2c;
+    --link-hover-color: #a3ffa3;
+
+    // Botão Principal
+    --btn-primary-text: #121212;
+    --btn-primary-hover-bg: #a3ffa3;
+    --btn-primary-shadow: rgba(125, 254, 125, 0.2);
+}
+
+.light-theme {
+    --background-color: #f7f9fc;
+    --card-background: #ffffff;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --primary-color: #1a1a1a;
+    --text-color: #334155; // Cinza escuro de alta legibilidade
+    --text-muted: #64748b;
+    --secondary-color: #1b7a2d; // Verde escuro com contraste em fundo claro
+    --terciary-color: #7c3aed; // Violeta rico vibrante
+    --terciary-hover-color: #6d28d9;
+    --border-color: #e2e8f0;
+    --link-hover-color: #155d22;
+
+    // Botão Principal
+    --btn-primary-text: #ffffff;
+    --btn-primary-hover-bg: #155d22;
+    --btn-primary-shadow: rgba(27, 122, 45, 0.2);
+}

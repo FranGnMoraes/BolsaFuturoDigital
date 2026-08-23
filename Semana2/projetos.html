@@ -12,24 +12,34 @@
 </head>
 <body>
     <header>
-        <a href="index.html" aria-label="Página Inicial">
+        <a href="index.html" aria-label="Página Inicial" class="logo">
             <img src="img/foto-perfil.jpeg" 
                 alt="Foto de perfil: Francine G.N Moraes, uma menina de cabelo marsala sorrindo com um fundo violeta" 
                 width="70" 
                 height="70"
             >
         </a>
-        
-        <nav>
+
+        <div class="header-controls">
+            <button id="theme-toggle" aria-label="Alternar tema escuro/claro" class="theme-btn">🌓</button>
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </span>
+            </button>
+        </div>
+
+        <nav id="nav-menu" class="nav-menu">
             <ul>
                 <li><a href="index.html">Sobre mim</a></li>
                 <li><a href="minha-trajetoria.html">Minha trajetória</a></li>
                 <li><a href="redes-sociais.html">Minhas redes sociais</a></li>
                 <li><a href="projetos.html" class="active" aria-current="page">Meus projetos</a></li>
                 <li><a href="skills.html">Minhas habilidades</a></li>
-            </ul> 
+            </ul>
         </nav>
-        <button id="theme-toggle" aria-label="Alternar tema escuro/claro" class="theme-btn">🌓</button>
     </header>
 
     <main>
@@ -39,6 +49,8 @@
             <h2 class="section-title">Projetos</h2>
             <nav class="projects-index" aria-label="Índice de projetos">
                 <ul>
+                    <li><a href="#colegio-sagrado-coracao">Site Institucional - Colégio Sagrado Coração de Jesus</a></li>
+                    <li><a href="#cafe-aroma">Café Aroma - Landing Page</a></li>
                     <li><a href="#portal-do-hyrax">Portal do Hyrax</a></li>
                     <li><a href="#eventech">EvenTech - Página de Eventos</a></li>
                     <li><a href="#calculadora">Calculadora em React</a></li>
@@ -49,6 +61,99 @@
             </nav>
 
             <div class="projects-list">
+                <article class="project-card" id="colegio-sagrado-coracao">
+                    <h2>
+                        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg>
+                        Site Institucional - Colégio Sagrado Coração de Jesus
+                        <span class="project-status status-development">Em finalização para deploy</span>
+                    </h2>
+                    <p>Colaboro no desenvolvimento do novo site institucional do <b>Colégio Sagrado Coração de Jesus</b> (Rio Grande, RS), criado em comemoração aos 70 anos da instituição (1956–2026). Minha participação acontece no âmbito do estágio em Administração Escolar, Comunicação e Suporte em TI, apoiando a estruturação de conteúdo, comunicação institucional e organização das informações publicadas via CMS. 🏫✨</p>
+                    <p>O projeto está atualmente em <b>estado final de preparação para o deploy oficial</b>, com a estrutura completa implementada e ajustes finos de conteúdo, imagens e integração com o CMS sendo concluídos antes da publicação definitiva.</p>
+
+                    <h3>
+                        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Objetivos
+                    </h3>
+                    <ul>
+                        <li>Criar a presença digital oficial da instituição, com conteúdo editável por membros da Secretaria Escolar;</li>
+                        <li>Permitir a publicação de notícias e galerias de fotos mensais de forma simples, sem depender de conhecimento técnico;</li>
+                        <li>Disponibilizar formulários de agendamento de visitas e orçamento de locação de espaços, com validação e envio por e-mail;</li>
+                        <li>Garantir conformidade com a LGPD, boas práticas de SEO e acessibilidade (WCAG 2.1 AA) em um layout responsivo (320px–1920px).</li>
+                    </ul>
+
+                    <h3>
+                        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        Tecnologias & Arquitetura
+                    </h3>
+                    <ul>
+                        <li><b>Front-end:</b> Next.js 14+ (App Router) com TypeScript e Tailwind CSS;</li>
+                        <li><b>CMS:</b> Sanity, permitindo à Secretaria publicar notícias e conteúdos em poucos minutos;</li>
+                        <li><b>E-mail transacional:</b> Resend, para os formulários de contato, visitas e orçamentos;</li>
+                        <li><b>Hospedagem:</b> Vercel, com deploy automático a cada atualização na branch principal e possibilidade de rollback.</li>
+                    </ul>
+
+                    <h3>
+                        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                        Atualizações recentes (Agosto/2026)
+                    </h3>
+                    <ul>
+                        <li>Reconexão de páginas ao Sanity e correção de bugs de imagem e conteúdo;</li>
+                        <li>Padronização das modalidades de ensino no CMS, removendo duplicidades e adicionando valores de segurança (fallback) para campos ainda não preenchidos;</li>
+                        <li>Revisão de conteúdo institucional, mantendo o evento comemorativo dos 70 anos e as feiras anuais;</li>
+                        <li>Atualização do portal do aluno, com cartões editáveis e múltiplos pontos de acesso (lojas de aplicativos, versão web e WhatsApp);</li>
+                        <li>Ajuste da campanha para "Matrículas e Rematrículas 2027" e correção dos dados oficiais de contato e endereço;</li>
+                        <li>Reformulação da navegação do cabeçalho e substituição da logo por uma versão em alta resolução;</li>
+                        <li>Bloqueio temporário de indexação enquanto o domínio é migrado, etapa que antecede a publicação oficial.</li>
+                    </ul>
+
+                    <p><b>Função:</b> Colaboradora — Estágio em Administração Escolar, Comunicação e Suporte em TI</p>
+                    <p><b>Tecnologias:</b> Next.js, TypeScript, Tailwind CSS, Sanity CMS, Resend, Vercel, Git/GitHub</p>
+
+                    <div class="project-links">
+                        <a href="https://github.com/ColegioSagradoCoracaoDeJesus/colegio_sagrado_coracao_de_jesus_rg" target="_blank" rel="noopener noreferrer">Visualizar código</a>
+                    </div>
+                </article>
+
+                <article class="project-card" id="cafe-aroma">
+                    <h2>
+                        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                        Café Aroma - Landing Page
+                        <span class="project-status status-developed">Desenvolvido</span>
+                    </h2>
+                    <p>Landing page para uma cafeteria artesanal, desenvolvida como projeto prático no âmbito do programa <b>Bolsa Futuro Digital</b>, com foco na construção de uma página premium e profissional utilizando boas práticas de layout e estilização. ☕✨</p>
+
+                    <h3>
+                        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Objetivos
+                    </h3>
+                    <ul>
+                        <li>Aplicar Flexbox e Grid na composição de seções e do cardápio;</li>
+                        <li>Construir um carrossel horizontal de depoimentos com navegação por setas;</li>
+                        <li>Praticar a organização de estilos com Sass, mantendo o CSS modular e reutilizável;</li>
+                        <li>Cuidar de espaçamento, hierarquia tipográfica e alinhamento para um resultado visualmente profissional.</li>
+                    </ul>
+
+                    <h3>
+                        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                        Funcionalidades
+                    </h3>
+                    <ul>
+                        <li>Cabeçalho fixo com identidade visual da marca;</li>
+                        <li>Seção "Sobre" com imagem e texto lado a lado;</li>
+                        <li>Cardápio em grid responsivo com os produtos;</li>
+                        <li>Carrossel horizontal de depoimentos com scroll-snap e setas de navegação;</li>
+                        <li>Formulário de reservas estilizado.</li>
+                    </ul>
+
+                    <p><b>Função:</b> Desenvolvedora Front-end</p>
+                    <p><b>Tecnologias:</b> HTML5, CSS3, Sass, Flexbox, Grid, JavaScript, Git/GitHub</p>
+
+                    <div class="project-links">
+                        <a href="https://frangnmoraes.github.io/Cafe-Aroma/" target="_blank" rel="noopener noreferrer">Visualizar página web</a>
+                        <a href="https://github.com/FranGnMoraes/Cafe-Aroma" target="_blank" rel="noopener noreferrer">Visualizar código</a>
+                    </div>
+                </article>
+
                 <article class="project-card" id="portal-do-hyrax">
                     <h2>
                         <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>

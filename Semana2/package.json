@@ -1,0 +1,13 @@
+{
+  "name": "semana2-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Compilação do Sass para o CSS do portfólio (Semana 2)",
+  "scripts": {
+    "sass:watch": "sass sass/main.scss css/style.css --watch --source-map",
+    "sass:build": "sass sass/main.scss css/style.css --style=compressed --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

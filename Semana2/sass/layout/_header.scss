@@ -1,0 +1,221 @@
+// ==========================================================================
+// Cabeçalho
+// Exemplo de nesting: tudo que é "filho" do header (link da logo, imagem,
+// controles, nav e seus estados) fica aninhado dentro do próprio seletor
+// header, em vez de repetir "header" na frente de cada regra.
+//
+// Estrutura portada do repositório Portfolio (site publicado), que já tinha
+// um menu hambúrguer completo e acessível: anima em X, fecha com Esc e ao
+// clicar fora (ver js/theme.js), e encolhe a logo no mobile pra não deixar
+// o header muito alto.
+// ==========================================================================
+
+header {
+    background-color: var(--header-bg);
+    border-bottom: 2px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-flow: row wrap; // permite quebrar linha para o menu mobile quando aberto
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); // Safari support
+    transition: padding 0.3s ease;
+
+    @media (min-width: 768px) {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--secondary-color);
+        transition: transform 0.3s ease;
+        width: 48px; // reduzida no mobile pra economizar espaço vertical
+        height: 48px;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 768px) {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    // Agrupa o botão de tema e o hambúrguer lado a lado, à direita
+    .header-controls {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    // Botão do menu hambúrguer
+    .menu-toggle {
+        display: inline-flex;
+        background: none;
+        border: 1px solid var(--border-color);
+        color: var(--primary-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-color: var(--secondary-color);
+            background-color: var(--background-color);
+        }
+
+        @media (min-width: 768px) {
+            display: none; // some no desktop, o nav fica sempre visível
+        }
+    }
+
+    .hamburger-box {
+        width: 18px;
+        height: 14px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .hamburger-bar {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+        left: 0;
+        transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+
+        &:nth-child(1) {
+            top: 0;
+        }
+
+        &:nth-child(2) {
+            top: 6px;
+        }
+
+        &:nth-child(3) {
+            top: 12px;
+        }
+    }
+
+    // Anima as 3 barras formando um "X" quando o menu está aberto
+    .menu-toggle[aria-expanded="true"] .hamburger-bar {
+        &:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        &:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+    }
+
+    // Menu de navegação: escondido por padrão (mobile), vira painel ao abrir
+    .nav-menu {
+        width: 100%;
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+
+        &.open {
+            display: block;
+            max-height: 500px;
+            margin-top: 0.75rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        a {
+            display: block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        a:hover,
+        a.active {
+            color: var(--secondary-color);
+            background-color: rgba(106, 90, 205, 0.08);
+            border-left-color: var(--secondary-color);
+            border-bottom: none;
+        }
+
+        @media (min-width: 768px) {
+            display: block !important;
+            width: auto;
+            max-height: none;
+            overflow: visible;
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            margin-left: auto;
+
+            ul {
+                flex-direction: row;
+                gap: 1.2rem;
+            }
+
+            a {
+                padding: 0 0 0.2rem 0;
+                border-radius: 0;
+                background-color: transparent !important;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                font-size: 0.95rem;
+            }
+
+            a:hover {
+                color: var(--secondary-color);
+                border-bottom-color: var(--terciary-color);
+                background-color: transparent;
+            }
+
+            a.active {
+                color: var(--secondary-color);
+                border-bottom-color: var(--terciary-color);
+                font-weight: 600;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.light-theme .nav-menu a {
+    background-color: rgba(0, 0, 0, 0.02);
+}

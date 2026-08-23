@@ -1,0 +1,40 @@
+// ==========================================================================
+// Tabela de Habilidades
+// caption/th/td ficam soltos (não aninhados dentro de "table") de propósito:
+// mantém a mesma especificidade do CSS original.
+// ==========================================================================
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+caption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-muted);
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: #1a1a1a;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}

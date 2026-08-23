@@ -1,0 +1,23 @@
+// ==========================================================================
+// Ícones SVG inline
+// ==========================================================================
+
+.icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: middle;
+    margin-right: 8px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+
+    // Seletor pai (&) usado do "lado de fora": quando um link com .icon
+    // dentro dele recebe hover, o próprio ícone se move.
+    a:hover & {
+        transform: translateY(-2px);
+    }
+}

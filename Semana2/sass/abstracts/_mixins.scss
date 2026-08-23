@@ -1,0 +1,37 @@
+// ==========================================================================
+// Mixins e placeholders reutilizáveis
+// Tudo que vive aqui é "reaproveitamento de código": em vez de repetir o
+// mesmo bloco de propriedades em vários lugares, escrevemos uma vez e
+// aplicamos com @include (ou @extend, no caso de placeholders %).
+// ==========================================================================
+
+// Aparência de "cartão" usada em .projects-index, .project-card,
+// .social-item, .skills-category e .timeline-content.
+@mixin card-base {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+// Efeito de "levantar" no hover (transform + sombra opcional).
+@mixin hover-lift($shadow: 0 4px 12px rgba(0, 0, 0, 0.3)) {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow;
+    }
+}
+
+// Fonte usada nos títulos (h1, h2, h3).
+@mixin heading-font {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+// Badge de status (.status-developed, .status-development, .status-planned)
+// recebe cor de fundo, texto e borda como parâmetros.
+@mixin status-badge($bg, $color, $border) {
+    background-color: $bg;
+    color: $color;
+    border: 1px solid $border;
+}

@@ -1,0 +1,116 @@
+// ==========================================================================
+// Componentes em formato de "cartão"
+// Todos usam @include card-base (mixin em abstracts/_mixins.scss) em vez
+// de repetir background-color/border-radius/border em cada um.
+// ==========================================================================
+
+@use '../abstracts/mixins' as *;
+
+// Índice e lista de projetos
+.projects-index {
+    @include card-base;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    a {
+        font-weight: 500;
+    }
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-card {
+    @include card-base;
+    @include hover-lift;
+    padding: 2rem;
+    border-left: 5px solid var(--terciary-color);
+
+    h2 {
+        margin-top: 0;
+    }
+
+    ul {
+        margin: 0 0 1.2rem 1.5rem;
+        color: var(--text-color);
+    }
+}
+
+// Redes Sociais
+.social-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.social-item {
+    @include card-base;
+    padding: 1.2rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-color: var(--secondary-color);
+    }
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+
+        &:hover {
+            color: var(--link-hover-color);
+        }
+    }
+
+    // Compila para ".social-item-email" (concatenação com &)
+    &-email {
+        border-left: 4px solid var(--terciary-color);
+    }
+}
+
+// Componente de Habilidades (categorias)
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skills-category {
+    @include card-base;
+    padding: 1.5rem;
+
+    h2 {
+        color: var(--terciary-color);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+
+        .icon {
+            color: var(--secondary-color);
+        }
+    }
+}
+
+.skills-list-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    list-style: none;
+}

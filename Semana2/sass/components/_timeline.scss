@@ -1,0 +1,61 @@
+// ==========================================================================
+// Componente de Linha do Tempo (Timeline)
+// ==========================================================================
+
+@use '../abstracts/mixins' as *;
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background-color: var(--border-color);
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:hover .timeline-marker {
+        transform: scale(1.3);
+    }
+}
+
+.timeline-marker {
+    position: absolute;
+    left: calc(-2rem + 1px);
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px var(--background-color), 0 0 0 5px var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content {
+    @include card-base;
+    padding: 1.5rem;
+
+    h2 {
+        margin-top: 0;
+        color: var(--terciary-color);
+        font-size: 1.3rem;
+
+        .icon {
+            color: var(--secondary-color);
+        }
+    }
+}

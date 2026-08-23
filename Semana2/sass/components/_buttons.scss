@@ -1,0 +1,98 @@
+// ==========================================================================
+// Botões e links com aparência de botão
+// Exemplo de reaproveitamento com placeholder (%btn-base) + @extend:
+// .btn-primary e .btn-secondary compartilham o mesmo "esqueleto".
+// ==========================================================================
+
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: var(--secondary-color);
+        background-color: var(--background-color);
+        transform: scale(1.1);
+    }
+}
+
+.cta-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+%btn-base {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    @extend %btn-base;
+    background-color: var(--terciary-color);
+    color: #ffffff !important;
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: var(--terciary-hover-color);
+        border-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(106, 90, 205, 0.25), 0 0 8px rgba(125, 254, 125, 0.15);
+    }
+}
+
+.btn-secondary {
+    @extend %btn-base;
+    background-color: transparent;
+    color: var(--primary-color) !important;
+    border: 1px solid var(--border-color);
+
+    &:hover {
+        border-color: var(--terciary-color);
+        color: var(--secondary-color) !important;
+        background-color: rgba(106, 90, 205, 0.05);
+        transform: translateY(-2px);
+    }
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    a {
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        background-color: var(--terciary-color);
+        color: #ffffff !important;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+
+        &:hover {
+            background-color: var(--terciary-hover-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 10px rgba(106, 90, 205, 0.25);
+        }
+    }
+}

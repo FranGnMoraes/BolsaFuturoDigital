@@ -1,0 +1,20 @@
+// ==========================================================================
+// Arquivo principal do Sass
+// Não tem estilos próprios: apenas reúne (com @use) todos os parciais na
+// ordem certa. É este arquivo que o comando "sass" compila para gerar
+// o css/style.css final.
+// ==========================================================================
+
+@use 'base/theme-vars';
+@use 'base/reset';
+@use 'base/typography';
+
+@use 'layout/header';
+@use 'layout/main-footer';
+
+@use 'components/icons';
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/badges';
+@use 'components/table';
+@use 'components/timeline';
