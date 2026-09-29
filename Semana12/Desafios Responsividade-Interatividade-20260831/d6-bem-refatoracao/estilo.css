@@ -1,0 +1,47 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-destaque: #FFD166;
+  --cor-texto: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+  padding: 60px 32px;
+}
+
+.card-boas-vindas {
+  background: var(--cor-primaria);
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 460px;
+
+  /* ==========================================
+     DESAFIO 5: o card aparece "seco", direto,
+     sem nenhuma animação.
+
+     Sua tarefa:
+     1) Criar um @keyframes chamado fadeIn, com
+        "from" (opacity: 0; transform: translateY(12px);)
+        e "to" (opacity: 1; transform: translateY(0);)
+     2) Aplicar esse keyframe aqui no .card-boas-vindas
+        com: animation: fadeIn 0.6s ease-out;
+     ========================================== */
+}
+
+.card-boas-vindas h1 {
+  font-family: Cambria, serif;
+  color: var(--cor-destaque);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card-boas-vindas p {
+  color: #C9D6E8;
+  font-size: 15px;
+  line-height: 1.5;
+}

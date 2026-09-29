@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio 1 — Cartão de visita</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Módulo 3 · Semana 9 · Desafio 1</div>
+  <h1>Cartão de visita</h1>
+  <div class="sub">variáveis + template literal</div>
+
+  <div class="bloco">
+    <h2>Objetivo</h2>
+    <p style="margin:0">Monte uma frase de apresentação usando variáveis e um template literal.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>Passo a passo</h2>
+    <ol>
+        <li>Crie uma constante <code>cidade</code> com o valor <code>"Rio Grande"</code>.</li>
+        <li>Crie a constante <code>apresentacao</code> com um <b>template literal</b> (crase e <code>${ }</code>) que produza a frase-alvo, usando as variáveis <code>nome</code>, <code>profissao</code>, <code>idade</code> e <code>cidade</code>.</li>
+    </ol>
+    <div class="dica">💡 <b>Dica:</b> Template literal usa crase ` ` no lugar das aspas, e <code>${variavel}</code> insere o valor. Repare na pontuação da frase-alvo (vírgulas e ponto final).</div>
+  </div>
+
+  <div id="status" class="pend">Complete o script.js e recarregue esta página…</div>
+  <div class="bloco" id="checks"></div>
+
+  <div class="bloco">
+    <h2>Saída no Console</h2>
+    <div class="grid">
+      <div class="console" id="console"></div>
+      <div style="color:var(--muted);font-size:13px">
+        Edite <code>script.js</code> onde está escrito <code>DESAFIO</code>,
+        salve e recarregue (F5). Abra também o Console do navegador
+        (<code>F12</code>) para ver mensagens de erro, se houver.
+      </div>
+    </div>
+  </div>
+
+  <footer>Curso de Front-end para Iniciantes · IFRS Campus Rio Grande</footer>
+</div>
+
+<script>
+  // espelha console.log e erros no painel visual
+  const painel = document.getElementById("console");
+  function _linha(txt, cls){
+    const l=document.createElement("div"); l.className="linha";
+    const s=document.createElement("span"); s.className="seta"; s.textContent="›";
+    const v=document.createElement("span"); v.className=cls||"val"; v.textContent=txt;
+    l.appendChild(s); l.appendChild(v); painel.appendChild(l);
+  }
+  const _orig=console.log.bind(console);
+  console.log=(...a)=>{ _orig(...a);
+    _linha(a.map(x=>typeof x==="string"?x:JSON.stringify(x)).join(" ")); };
+  window.addEventListener("error", e=>{ _linha("Erro: "+e.message, "err"); });
+</script>
+
+<!-- arquivo do aluno -->
+<script src="script.js"></script>
+
+<!-- verificação automática (não editar) -->
+<script>
+  (function(){
+    const checks = [{"rotulo":"cidade vale \"Rio Grande\"","varName":"cidade","esperado":"Rio Grande"},{"rotulo":"apresentacao está com a frase exata","varName":"apresentacao","esperado":"Olá! Eu sou Bruno, estudante de front-end, tenho 17 anos e moro em Rio Grande."}];
+    const ler = (nome) => {
+      try { return { ok:true, valor: eval(nome) }; }
+      catch (e) { return { ok:false, valor: undefined }; }
+    };
+    const cont = document.getElementById("checks");
+    let todosOk = true;
+    checks.forEach(c => {
+      const r = ler(c.varName);
+      let passou = r.ok && r.valor === c.esperado;
+      if (passou && c.tipo) passou = (typeof r.valor === c.tipo);
+      if (!passou) todosOk = false;
+      const div = document.createElement("div");
+      div.className = "check " + (passou ? "ok" : "no");
+      const obtidoTxt = r.ok
+        ? (typeof r.valor === "string" ? JSON.stringify(r.valor) : String(r.valor))
+        : "(ainda não definido)";
+      div.innerHTML =
+        '<span class="marca">' + (passou ? "✓" : "✗") + '</span>' +
+        '<span class="txt">' + c.rotulo +
+        '<div class="det">obtido: ' + obtidoTxt + '</div></span>';
+      cont.appendChild(div);
+    });
+    const st = document.getElementById("status");
+    if (todosOk) { st.className="ok"; st.textContent="✓ Desafio concluído! Todos os testes passaram."; }
+    else { st.className="no"; st.textContent="Ainda não — ajuste o script.js e recarregue."; }
+  })();
+</script>
+</body>
+</html>

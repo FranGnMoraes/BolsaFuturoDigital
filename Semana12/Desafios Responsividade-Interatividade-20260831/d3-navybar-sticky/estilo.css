@@ -1,0 +1,43 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-destaque: #52E8CC;
+  --cor-texto: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+}
+
+nav {
+  background: var(--cor-primaria);
+  color: var(--cor-destaque);
+  font-family: Cambria, serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 32px;
+
+  /* ==========================================
+     DESAFIO 3: o menu rola junto com a página
+     e desaparece assim que você rola para baixo.
+
+     Sua tarefa: adicionar position: sticky e
+     top: 0 para o menu "grudar" no topo da tela
+     enquanto o restante da página rola por baixo
+     dele.
+     ========================================== */
+}
+
+.secao {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  border-bottom: 1px solid #1A3F7F;
+  font-size: 15px;
+  color: #C9D6E8;
+}

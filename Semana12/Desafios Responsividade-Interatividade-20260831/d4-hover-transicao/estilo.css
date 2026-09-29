@@ -1,0 +1,44 @@
+:root {
+  --cor-primaria: #1A3F7F;
+  --cor-fundo: #0F2C5A;
+  --cor-destaque: #6BD6FA;
+  --cor-texto: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Calibri, "Segoe UI", sans-serif;
+  padding: 32px;
+}
+
+h1 {
+  font-family: Cambria, serif;
+  margin-bottom: 24px;
+}
+
+.botao {
+  background: var(--cor-primaria);
+  color: var(--cor-texto);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: Calibri, sans-serif;
+  cursor: pointer;
+
+  /* ==========================================
+     DESAFIO 4: o botão não tem nenhuma reação
+     ao passar o mouse.
+
+     Sua tarefa:
+     1) Adicionar transition aqui no estado normal
+        (ex.: transition: background 0.2s, transform 0.15s;)
+     2) Criar uma regra .botao:hover que muda a
+        cor de fundo (ex.: para var(--cor-destaque))
+     3) Opcional: em .botao:active, adicionar
+        transform: scale(0.96) para um efeito de clique.
+     ========================================== */
+}
