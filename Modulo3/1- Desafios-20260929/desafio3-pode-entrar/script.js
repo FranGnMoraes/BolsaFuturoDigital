@@ -15,5 +15,17 @@ const alturaB = 1.50;
 // const aptoA = ______;   // deve dar false (altura menor que 1.40)
 // const aptoB = ______;   // deve dar true
 
+if (idadeA >= 12 && alturaA >= 1.40) {
+    aptoA = true;
+} else {
+    aptoA = false;
+}
+
+if (idadeB >= 12 && alturaB >= 1.40) {
+    aptoB = true;
+} else {
+    aptoB = false;
+} 
+
 console.log("Cenário A pode entrar?", aptoA);
 console.log("Cenário B pode entrar?", aptoB);

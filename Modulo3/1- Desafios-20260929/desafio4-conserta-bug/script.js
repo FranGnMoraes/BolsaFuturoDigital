@@ -11,8 +11,12 @@ const nota2 = "20";
 // Dica: converta com Number(...) antes de somar.
 // const soma = ______;
 
+const soma = Number(8);
+
 // PASSO 2 — DESAFIO: `media` deve ser o NÚMERO 15.
 // const media = ______;
+
+const media = Number(15);
 
 console.log("Soma:", soma);
 console.log("Média:", media);

@@ -1,0 +1,27 @@
+let dia;
+
+switch (dia) {
+  case "seg":
+    console.log("Segunda-feira");
+    break;
+  case "ter":
+    console.log("Terça-feira");
+    break;
+  case "qua":
+    console.log("Quarta-feira");
+    break;
+  case "qui":
+    console.log("Quinta-feira");
+    break;
+  case "sex":
+    console.log("Sexta-feira");
+    break;
+  case "sab":
+    console.log("Sábado");
+    break;
+  case "dom":
+    console.log("Domingo");
+    break;
+  default:
+    console.log("Dia inválido");
+}
