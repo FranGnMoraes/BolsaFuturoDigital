@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio 4 — Somar a lista</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">JavaScript · Lógica e estruturas · Desafio 4</div>
+  <h1>Somar a lista</h1>
+  <div class="sub">loops (percorrer + acumular)</div>
+
+  <div class="bloco">
+    <h2>Objetivo</h2>
+    <p style="margin:0">Percorra um array com um loop para somar valores e contar quantos passam de um limite.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>Passo a passo</h2>
+    <ol>
+        <li>Percorra o array <code>numeros</code> com um loop (<code>for</code> ou <code>forEach</code>).</li>
+        <li>Acumule a soma de todos os valores em <code>soma</code>.</li>
+        <li>Conte em <code>maioresQue25</code> quantos números são maiores que 25.</li>
+    </ol>
+    <div class="dica">💡 <b>Dica:</b> Comece <code>soma = 0</code> e <code>maioresQue25 = 0</code> ANTES do loop. Dentro, faça <code>soma += n</code> e, com um <code>if</code>, <code>maioresQue25++</code> quando <code>n > 25</code>.</div>
+  </div>
+
+  <div id="status" class="pend">Complete o script.js e recarregue esta página…</div>
+  <div class="bloco" id="checks"></div>
+
+  <div class="bloco">
+    <h2>Saída no Console</h2>
+    <div class="grid">
+      <div class="console" id="console"></div>
+      <div style="color:var(--muted);font-size:13px">
+        Edite <code>script.js</code> onde está escrito <code>DESAFIO</code>,
+        salve e recarregue (F5). Abra também o Console do navegador
+        (<code>F12</code>) para ver mensagens de erro, se houver.
+      </div>
+    </div>
+  </div>
+
+  <footer>Curso de Front-end para Iniciantes · IFRS Campus Rio Grande</footer>
+</div>
+
+<script>
+  const painel = document.getElementById("console");
+  function _linha(txt, cls){
+    const l=document.createElement("div"); l.className="linha";
+    const s=document.createElement("span"); s.className="seta"; s.textContent="›";
+    const v=document.createElement("span"); v.className=cls||"val"; v.textContent=txt;
+    l.appendChild(s); l.appendChild(v); painel.appendChild(l);
+  }
+  const _orig=console.log.bind(console);
+  console.log=(...a)=>{ _orig(...a);
+    _linha(a.map(x=>typeof x==="string"?x:JSON.stringify(x)).join(" ")); };
+  window.addEventListener("error", e=>{ _linha("Erro: "+e.message, "err"); });
+</script>
+
+<!-- arquivo do aluno -->
+<script src="script.js"></script>
+
+<!-- verificação automática (não editar) -->
+<script>
+  (function(){
+    const checks = [{"rotulo":"soma é 100","expr":"soma","esperado":100,"tipo":"number"},{"rotulo":"maioresQue25 é 2","expr":"maioresQue25","esperado":2,"tipo":"number"}];
+    const igual = (a, b) => {
+      if (Array.isArray(b) || (b !== null && typeof b === "object")) {
+        try { return JSON.stringify(a) === JSON.stringify(b); } catch(e){ return false; }
+      }
+      return a === b;
+    };
+    const ler = (expr) => {
+      try { return { ok:true, valor: eval(expr) }; }
+      catch (e) { return { ok:false, valor: undefined }; }
+    };
+    const fmt = (v) => {
+      if (typeof v === "string") return JSON.stringify(v);
+      if (Array.isArray(v) || (v !== null && typeof v === "object")) {
+        try { return JSON.stringify(v); } catch(e){ return String(v); }
+      }
+      return String(v);
+    };
+    const cont = document.getElementById("checks");
+    let todosOk = true;
+    checks.forEach(c => {
+      const r = ler(c.expr);
+      let passou = r.ok && igual(r.valor, c.esperado);
+      if (passou && c.tipo) passou = (typeof r.valor === c.tipo);
+      if (!passou) todosOk = false;
+      const div = document.createElement("div");
+      div.className = "check " + (passou ? "ok" : "no");
+      const obtidoTxt = r.ok ? fmt(r.valor) : "(ainda não definido)";
+      div.innerHTML =
+        '<span class="marca">' + (passou ? "✓" : "✗") + '</span>' +
+        '<span class="txt">' + c.rotulo +
+        '<div class="det">obtido: ' + obtidoTxt + '</div></span>';
+      cont.appendChild(div);
+    });
+    const st = document.getElementById("status");
+    if (todosOk) { st.className="ok"; st.textContent="✓ Desafio concluído! Todos os testes passaram."; }
+    else { st.className="no"; st.textContent="Ainda não — ajuste o script.js e recarregue."; }
+  })();
+</script>
+</body>
+</html>

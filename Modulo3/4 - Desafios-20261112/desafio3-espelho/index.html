@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio 3 — Espelho do campo</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">JavaScript · Eventos e formulários · Desafio 3</div>
+  <h1>Espelho do campo</h1>
+  <div class="sub">evento input</div>
+
+  <div class="bloco">
+    <h2>Objetivo</h2>
+    <p style="margin:0">Faça o parágrafo mostrar, ao vivo, o que for digitado no campo.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>Passo a passo</h2>
+    <ol>
+        <li>Selecione o <code>#campo</code> e o <code>#eco</code>.</li>
+        <li>Adicione um listener do evento <code>"input"</code> ao campo.</li>
+        <li>Dentro, copie o <code>campo.value</code> para o <code>textContent</code> do eco.</li>
+    </ol>
+    <div class="dica">💡 <b>Dica:</b> O evento certo é <code>"input"</code> (dispara a cada tecla). Dentro: <code>eco.textContent = campo.value;</code>.</div>
+  </div>
+
+  <div id="status" class="pend">Complete o script.js e recarregue esta página…</div>
+  <div class="bloco" id="checks"></div>
+
+  <div class="bloco">
+    <h2>Página (a verificação simula as ações)</h2>
+    <div class="palco" id="palco"></div>
+    <div class="nota">Você também pode interagir aqui à vontade. Ao recarregar, a verificação roda sozinha.</div>
+  </div>
+
+  <footer>Curso de Front-end para Iniciantes · IFRS Campus Rio Grande</footer>
+</div>
+
+<script>
+  // injeta o palco ANTES do script do aluno
+  document.getElementById("palco").innerHTML = "\u003cinput id=\"campo\" placeholder=\"Digite…\">\n\u003cp id=\"eco\">—\u003c/p>";
+  window.addEventListener("error", e => {
+    const st = document.getElementById("status");
+    st.className = "no"; st.textContent = "Erro no script.js: " + e.message;
+  });
+</script>
+
+<!-- arquivo do aluno (anexa os eventos) -->
+<script src="script.js"></script>
+
+<!-- verificação automática: simula ações e confere (não editar) -->
+<script>
+  (function(){
+    const grupos = [{"roteiro":[{"do":"input","sel":"#campo","val":"Olá, DOM!"}],"checks":[{"rotulo":"ao digitar \"Olá, DOM!\", #eco mostra o mesmo texto","expr":"document.getElementById(\"eco\").textContent","eq":"Olá, DOM!"}]}];
+    const palco = document.getElementById("palco");
+    const q = (sel) => palco.querySelector(sel);
+    const igual = (a,b) => {
+      if (Array.isArray(b) || (b!==null && typeof b==="object")) { try { return JSON.stringify(a)===JSON.stringify(b); } catch(e){ return false; } }
+      return a===b;
+    };
+    const fmt = (v) => {
+      if (typeof v==="string") return JSON.stringify(v);
+      if (Array.isArray(v) || (v!==null && typeof v==="object")) { try { return JSON.stringify(v); } catch(e){ return String(v); } }
+      return String(v);
+    };
+    const fazer = (passo) => {
+      const el = q(passo.sel);
+      if (!el) return;
+      if (passo.do === "click") { el.click(); }
+      else if (passo.do === "input") { el.value = passo.val; el.dispatchEvent(new Event("input", {bubbles:true})); }
+      else if (passo.do === "submit") {
+        const ev = new Event("submit", {bubbles:true, cancelable:true});
+        window.__ev = ev; el.dispatchEvent(ev);
+      }
+    };
+    const cont = document.getElementById("checks");
+    const ler = (expr) => { try { return { ok:true, valor: eval(expr) }; } catch(e){ return { ok:false, valor:undefined }; } };
+    let todosOk = true;
+    try {
+      grupos.forEach(g => {
+        (g.roteiro||[]).forEach(fazer);
+        g.checks.forEach(c => {
+          const r = ler(c.expr);
+          let passou = r.ok && igual(r.valor, c.eq);
+          if (passou && c.tipo) passou = (typeof r.valor === c.tipo);
+          if (!passou) todosOk = false;
+          const div = document.createElement("div");
+          div.className = "check " + (passou ? "ok" : "no");
+          div.innerHTML = '<span class="marca">' + (passou ? "✓" : "✗") + '</span>' +
+            '<span class="txt">' + c.rotulo + '<div class="det">obtido: ' + (r.ok ? fmt(r.valor) : "(ainda não definido)") + '</div></span>';
+          cont.appendChild(div);
+        });
+      });
+    } catch(e) { todosOk = false; }
+    const st = document.getElementById("status");
+    if (st.className.indexOf("no") === -1) {
+      if (todosOk) { st.className="ok"; st.textContent="✓ Desafio concluído! Todos os testes passaram."; }
+      else { st.className="no"; st.textContent="Ainda não — ajuste o script.js e recarregue."; }
+    }
+  })();
+</script>
+</body>
+</html>

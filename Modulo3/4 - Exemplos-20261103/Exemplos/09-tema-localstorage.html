@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemplo 09 — Tema que se lembra (localStorage)</title>
+<style>
+  :root{ --bg:#0F2C5A; --panel:#1A3F7F; --code:#081D3D; --cyan:#6BD6FA; --teal:#52E8CC;
+    --yellow:#FFD166; --rose:#F4869A; --ink:#E8F0FF; --muted:#9DB4D8; --line:#31589C; }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:Calibri,"Segoe UI",system-ui,sans-serif; padding:28px; line-height:1.5;}
+  .wrap{max-width:1080px; margin:0 auto;}
+  .kicker{color:var(--cyan); font-weight:700; letter-spacing:2px; font-size:12px; text-transform:uppercase;}
+  h1.tit{font-family:Cambria,Georgia,serif; font-size:30px; margin:6px 0 4px;}
+  .sub{color:var(--muted); font-size:16px; margin-bottom:18px;}
+  .htmlpart{background:var(--panel); border-radius:10px; padding:10px 14px; margin-bottom:16px;}
+  .htmlpart h2{font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin:0 0 6px;}
+  .htmlpart pre{margin:0; font-family:"Courier New",monospace; font-size:13px; color:var(--teal); white-space:pre-wrap;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media (max-width:820px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--panel); border-radius:12px; padding:14px 16px;}
+  .card h2{font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin:2px 0 10px;}
+  pre.cod{background:var(--code); border-radius:10px; padding:14px 16px; margin:0; overflow:auto;
+    font-family:"Courier New",monospace; font-size:13.5px; color:var(--ink); line-height:1.5;}
+  .palco{background:var(--code); border-radius:10px; padding:16px; min-height:120px; color:var(--ink);}
+  .palco p{margin:.5em 0;} .palco ul{margin:.3em 0; padding-left:22px;} .palco li{margin:.15em 0;}
+  .palco span{font-size:22px; font-weight:bold; padding:0 14px;}
+  .palco input{background:#06152e; border:1px solid var(--line); color:var(--ink); border-radius:7px;
+    padding:8px 10px; font-size:14px; font-family:Calibri,sans-serif; margin-right:6px; min-width:160px;}
+  .palco button{background:var(--cyan); color:var(--bg); border:none; font-weight:700;
+    padding:8px 14px; border-radius:7px; font-family:Calibri,sans-serif; font-size:14px; cursor:pointer; margin:2px 4px 2px 0;}
+  .palco form{margin:0 0 6px;}
+  .dica{margin-top:18px; background:var(--panel); border-left:3px solid var(--yellow); border-radius:8px;
+    padding:10px 14px; color:var(--ink); font-size:14px;}
+  code{font-family:"Courier New",monospace; color:var(--yellow);}
+  footer{margin-top:22px; color:var(--muted); font-size:12px;}
+  .palco .area{padding:16px;border-radius:8px;background:#cfe0ff;color:#0F2C5A;margin-top:10px;}
+    .palco .escuro{background:#5e006d;color:#f1ffa4;}
+    .palco .pastel{background:#f0a4ff;color:#5e006d;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">JavaScript · Eventos e formulários · Exemplo 09</div>
+  <h1 class="tit">Tema que se lembra (localStorage)</h1>
+  <div class="sub">Alternar o tema e salvar a escolha no navegador.</div>
+
+  <div class="htmlpart">
+    <h2>HTML de partida</h2>
+    <pre id="htmlpart"></pre>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Código JavaScript</h2>
+      <pre class="cod" id="fonte"></pre>
+    </div>
+    <div class="card">
+      <h2>Experimente (a página reage)</h2>
+      <div class="palco" id="palco"></div>
+    </div>
+  </div>
+
+  <div class="dica">
+    Interaja na área ao lado — clique, digite ou envie. Abra o Console (<code>F12</code>) e
+    edite o código para testar suas próprias ideias.
+  </div>
+  <footer>Curso de Front-end para Iniciantes · IFRS Campus Rio Grande</footer>
+</div>
+
+<script>
+  const palcoHTML = "\u003cbutton id=\"trocar\">Alternar tema\u003c/button>\n\u003cdiv id=\"area\" class=\"area\">Esta área muda de tema — e lembra na próxima visita\u003c/div>";
+  const fonte = "const area = document.getElementById(\"area\");\n\n// ao abrir, aplica o tema que estava salvo\nif (localStorage.getItem(\"tema\") === \"escuro\") {\n  area.classList.add(\"escuro\");\nelse if (localStorage.getItem(\"tema\") === \"pastel\") {\n  area.classList.add(\"pastel\");\n}\n\ndocument.getElementById(\"trocar\").addEventListener(\"click\", () => {\n  area.classList.toggle(\"escuro\" \"pastel\" \"claro\");\n  // salva a escolha atual\n  const atual = area.classList.contains(\"escuro\") ? \"escuro\" : \"claro\";\n  localStorage.setItem(\"tema\", atual);\n});";
+
+  
+  
+  document.getElementById("htmlpart").textContent = palcoHTML;
+  document.getElementById("fonte").textContent = fonte;
+
+  // injeta os elementos reais e executa o código (que anexa os eventos)
+  document.getElementById("palco").innerHTML = palcoHTML;
+  try { new Function(fonte)(); }
+  catch (e) { console.error(e); }
+</script>
+</body>
+</html>

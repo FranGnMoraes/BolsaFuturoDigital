@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio 2 — Calcular a média</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">JavaScript · Lógica e estruturas · Desafio 2</div>
+  <h1>Calcular a média</h1>
+  <div class="sub">funções (parâmetros e return)</div>
+
+  <div class="bloco">
+    <h2>Objetivo</h2>
+    <p style="margin:0">Crie uma função que recebe três notas e devolve a média delas.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>Passo a passo</h2>
+    <ol>
+        <li>Complete a função <code>media(a, b, c)</code>.</li>
+        <li>Some os três valores e divida por 3.</li>
+        <li>Use <code>return</code> para devolver o resultado (não use console.log dentro da função).</li>
+    </ol>
+    <div class="dica">💡 <b>Dica:</b> A média é <code>(a + b + c) / 3</code>. Lembre dos parênteses: a soma acontece antes da divisão. O <code>return</code> entrega o valor para quem chamou.</div>
+  </div>
+
+  <div id="status" class="pend">Complete o script.js e recarregue esta página…</div>
+  <div class="bloco" id="checks"></div>
+
+  <div class="bloco">
+    <h2>Saída no Console</h2>
+    <div class="grid">
+      <div class="console" id="console"></div>
+      <div style="color:var(--muted);font-size:13px">
+        Edite <code>script.js</code> onde está escrito <code>DESAFIO</code>,
+        salve e recarregue (F5). Abra também o Console do navegador
+        (<code>F12</code>) para ver mensagens de erro, se houver.
+      </div>
+    </div>
+  </div>
+
+  <footer>Curso de Front-end para Iniciantes · IFRS Campus Rio Grande</footer>
+</div>
+
+<script>
+  const painel = document.getElementById("console");
+  function _linha(txt, cls){
+    const l=document.createElement("div"); l.className="linha";
+    const s=document.createElement("span"); s.className="seta"; s.textContent="›";
+    const v=document.createElement("span"); v.className=cls||"val"; v.textContent=txt;
+    l.appendChild(s); l.appendChild(v); painel.appendChild(l);
+  }
+  const _orig=console.log.bind(console);
+  console.log=(...a)=>{ _orig(...a);
+    _linha(a.map(x=>typeof x==="string"?x:JSON.stringify(x)).join(" ")); };
+  window.addEventListener("error", e=>{ _linha("Erro: "+e.message, "err"); });
+</script>
+
+<!-- arquivo do aluno -->
+<script src="script.js"></script>
+
+<!-- verificação automática (não editar) -->
+<script>
+  (function(){
+    const checks = [{"rotulo":"media(6, 8, 10) é 8","expr":"media(6, 8, 10)","esperado":8,"tipo":"number"},{"rotulo":"media(5, 5, 5) é 5","expr":"media(5, 5, 5)","esperado":5,"tipo":"number"},{"rotulo":"media(7, 8, 9) é 8","expr":"media(7, 8, 9)","esperado":8,"tipo":"number"}];
+    const igual = (a, b) => {
+      if (Array.isArray(b) || (b !== null && typeof b === "object")) {
+        try { return JSON.stringify(a) === JSON.stringify(b); } catch(e){ return false; }
+      }
+      return a === b;
+    };
+    const ler = (expr) => {
+      try { return { ok:true, valor: eval(expr) }; }
+      catch (e) { return { ok:false, valor: undefined }; }
+    };
+    const fmt = (v) => {
+      if (typeof v === "string") return JSON.stringify(v);
+      if (Array.isArray(v) || (v !== null && typeof v === "object")) {
+        try { return JSON.stringify(v); } catch(e){ return String(v); }
+      }
+      return String(v);
+    };
+    const cont = document.getElementById("checks");
+    let todosOk = true;
+    checks.forEach(c => {
+      const r = ler(c.expr);
+      let passou = r.ok && igual(r.valor, c.esperado);
+      if (passou && c.tipo) passou = (typeof r.valor === c.tipo);
+      if (!passou) todosOk = false;
+      const div = document.createElement("div");
+      div.className = "check " + (passou ? "ok" : "no");
+      const obtidoTxt = r.ok ? fmt(r.valor) : "(ainda não definido)";
+      div.innerHTML =
+        '<span class="marca">' + (passou ? "✓" : "✗") + '</span>' +
+        '<span class="txt">' + c.rotulo +
+        '<div class="det">obtido: ' + obtidoTxt + '</div></span>';
+      cont.appendChild(div);
+    });
+    const st = document.getElementById("status");
+    if (todosOk) { st.className="ok"; st.textContent="✓ Desafio concluído! Todos os testes passaram."; }
+    else { st.className="no"; st.textContent="Ainda não — ajuste o script.js e recarregue."; }
+  })();
+</script>
+</body>
+</html>

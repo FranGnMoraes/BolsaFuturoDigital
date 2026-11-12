@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio 5 — Ficha do aluno</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">JavaScript · Lógica e estruturas · Desafio 5</div>
+  <h1>Ficha do aluno</h1>
+  <div class="sub">objetos (acesso e propriedades)</div>
+
+  <div class="bloco">
+    <h2>Objetivo</h2>
+    <p style="margin:0">Leia dados de um objeto e adicione uma nova propriedade.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>Passo a passo</h2>
+    <ol>
+        <li>O objeto <code>aluno</code> tem <code>nome</code> e <code>nota</code>.</li>
+        <li>Crie <code>resumo</code> com um template literal: <code>"Bruno tirou 7"</code>.</li>
+        <li>Adicione ao objeto a propriedade <code>aprovado</code> = a nota é 6 ou mais?</li>
+    </ol>
+    <div class="dica">💡 <b>Dica:</b> Acesse com ponto: <code>aluno.nome</code>, <code>aluno.nota</code>. Para adicionar: <code>aluno.aprovado = aluno.nota >= 6</code>. No template literal, use crase e <code>${ }</code>.</div>
+  </div>
+
+  <div id="status" class="pend">Complete o script.js e recarregue esta página…</div>
+  <div class="bloco" id="checks"></div>
+
+  <div class="bloco">
+    <h2>Saída no Console</h2>
+    <div class="grid">
+      <div class="console" id="console"></div>
+      <div style="color:var(--muted);font-size:13px">
+        Edite <code>script.js</code> onde está escrito <code>DESAFIO</code>,
+        salve e recarregue (F5). Abra também o Console do navegador
+        (<code>F12</code>) para ver mensagens de erro, se houver.
+      </div>
+    </div>
+  </div>
+
+  <footer>Curso de Front-end para Iniciantes · IFRS Campus Rio Grande</footer>
+</div>
+
+<script>
+  const painel = document.getElementById("console");
+  function _linha(txt, cls){
+    const l=document.createElement("div"); l.className="linha";
+    const s=document.createElement("span"); s.className="seta"; s.textContent="›";
+    const v=document.createElement("span"); v.className=cls||"val"; v.textContent=txt;
+    l.appendChild(s); l.appendChild(v); painel.appendChild(l);
+  }
+  const _orig=console.log.bind(console);
+  console.log=(...a)=>{ _orig(...a);
+    _linha(a.map(x=>typeof x==="string"?x:JSON.stringify(x)).join(" ")); };
+  window.addEventListener("error", e=>{ _linha("Erro: "+e.message, "err"); });
+</script>
+
+<!-- arquivo do aluno -->
+<script src="script.js"></script>
+
+<!-- verificação automática (não editar) -->
+<script>
+  (function(){
+    const checks = [{"rotulo":"resumo é \"Bruno tirou 7\"","expr":"resumo","esperado":"Bruno tirou 7"},{"rotulo":"aluno.aprovado é true","expr":"aluno.aprovado","esperado":true}];
+    const igual = (a, b) => {
+      if (Array.isArray(b) || (b !== null && typeof b === "object")) {
+        try { return JSON.stringify(a) === JSON.stringify(b); } catch(e){ return false; }
+      }
+      return a === b;
+    };
+    const ler = (expr) => {
+      try { return { ok:true, valor: eval(expr) }; }
+      catch (e) { return { ok:false, valor: undefined }; }
+    };
+    const fmt = (v) => {
+      if (typeof v === "string") return JSON.stringify(v);
+      if (Array.isArray(v) || (v !== null && typeof v === "object")) {
+        try { return JSON.stringify(v); } catch(e){ return String(v); }
+      }
+      return String(v);
+    };
+    const cont = document.getElementById("checks");
+    let todosOk = true;
+    checks.forEach(c => {
+      const r = ler(c.expr);
+      let passou = r.ok && igual(r.valor, c.esperado);
+      if (passou && c.tipo) passou = (typeof r.valor === c.tipo);
+      if (!passou) todosOk = false;
+      const div = document.createElement("div");
+      div.className = "check " + (passou ? "ok" : "no");
+      const obtidoTxt = r.ok ? fmt(r.valor) : "(ainda não definido)";
+      div.innerHTML =
+        '<span class="marca">' + (passou ? "✓" : "✗") + '</span>' +
+        '<span class="txt">' + c.rotulo +
+        '<div class="det">obtido: ' + obtidoTxt + '</div></span>';
+      cont.appendChild(div);
+    });
+    const st = document.getElementById("status");
+    if (todosOk) { st.className="ok"; st.textContent="✓ Desafio concluído! Todos os testes passaram."; }
+    else { st.className="no"; st.textContent="Ainda não — ajuste o script.js e recarregue."; }
+  })();
+</script>
+</body>
+</html>
